@@ -457,16 +457,21 @@
             showSlide(currentSlide);
         }
 
-        function checkPassword() {
-            var password = prompt("Enter password to view photos:");
+   function checkPassword() {
+    var password = prompt("Enter password to view photos:");
 
-            if (password === "Family2026") {
-                document.getElementById("gallery").style.display = "block";
-                showSlide(currentSlide);
-            } else if (password !== null) {
-                alert("Incorrect password");
-            }
-        }
+    if(password === "Family2026"){
+        var gallery = document.getElementById("gallery");
+        gallery.style.display = "block";
+        setTimeout(function() {
+            gallery.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+    } 
+    else if(password !== null){
+        alert("Incorrect password");
+    }
+}
+
     </script>
 
 
@@ -479,6 +484,7 @@
 
 
 </html>
+
 
 
 
