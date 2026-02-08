@@ -12,6 +12,49 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+@media(max-width:768px){
+    .slide img {
+        height: 350px;
+    }
+}
+
 .card {
     background: white;
     padding: 20px;
@@ -364,48 +407,67 @@
 
         <br>
         <a class="print-btn" onclick="window.print()">Download / Print Biodata</a>
-    </section>
-    <section id="gallery" style="display:none;">
-        <h2 style="text-align:center;">Photo Gallery</h2>
+  <section>
 
-        <div class="photo-grid">
-            <div class="photo-item">
-                <img src="photo1.jpg" alt="Photo 1">
+
+
+
+        <div id="gallery" style="display:none; text-align:center; margin-top:20px;">
+
+            <div class="slideshow-container">
+
+                <div class="slide">
+                    <img src="photo1.jpg">
+                </div>
+
+                <div class="slide">
+                    <img src="photo2.jpg">
+                </div>
+
+                <div class="slide">
+                    <img src="photo3.jpg">
+                </div>
+
+                <div class="slide">
+                    <img src="photo4.jpg">
+                </div>
+
+                <button class="prev" onclick="changeSlide(-1)">❮</button>
+                <button class="next" onclick="changeSlide(1)">❯</button>
+
             </div>
-            <div class="photo-item">
-                <img src="photo2.jpg" alt="Photo 2">
-            </div>
-            <div class="photo-item">
-                <img src="photo3.jpg" alt="Photo 3">
-            </div>
-            <div class="photo-item">
-                <img src="photo4.jpg" alt="Photo 4">
-            </div>
+
         </div>
     </section>
-    <script>
+   <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            let slides = document.querySelectorAll(".slide");
+
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+
+            slides.forEach(slide => slide.style.display = "none");
+            slides[currentSlide].style.display = "block";
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
         function checkPassword() {
             var password = prompt("Enter password to view photos:");
 
-            if (password === "Groom2026") {
-                toggleGallery();
+            if (password === "Family2026") {
+                document.getElementById("gallery").style.display = "block";
+                showSlide(currentSlide);
             } else if (password !== null) {
-                alert("Incorrect password. Please contact family for access.");
-            }
-        }
-
-        function toggleGallery() {
-            var gallery = document.getElementById("gallery");
-
-            if (gallery.style.display === "none" || gallery.style.display === "") {
-                gallery.style.display = "block";
-                gallery.scrollIntoView({ behavior: "smooth" });
-            } else {
-                gallery.style.display = "none";
+                alert("Incorrect password");
             }
         }
     </script>
-
 
 
 
@@ -417,6 +479,7 @@
 
 
 </html>
+
 
 
 
