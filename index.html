@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyadharshan | Matrimony Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Language Switch */
+        .lang-switch {
+            text-align: right;
+            padding: 15px 20px;
+        }
+
+        .lang-switch button {
+            padding: 6px 14px;
+            margin-left: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff8e7;
+            color: #4a2c2a;
+            position: relative;
+        }
+
+        /* Gallery */
+        .photo-grid {
+            max-width: 900px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .photo-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-item img {
+                height: 250px;
+            }
+        }
+
+
+        /* Temple Watermark Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Temple_silhouette.svg/800px-Temple_silhouette.svg.png') no-repeat center;
+            background-size: 60%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8b5e3c, #c19a6b);
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+
+
+        header h1 {
+            font-size: 34px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        /* Sections */
+        section {
+            padding: 10px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #8b5e3c;
+            margin-bottom: 4px;
+            border-bottom: 2px solid #d4af37;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .whatsapp-btn,
+        .print-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .print-btn {
+            background: #8b5e3c;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #c19a6b;
+            margin-top: 40px;
+            color: white;
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        .card {
+            font-size: 14px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+        }
+
+        /* Print Style */
+        @media print {
+
+            .whatsapp-btn,
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lang-switch">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('ta')">தமிழ்</button>
+    </div>
+
+    <header>
+        <div class="photo-frame">
+            <img src="your-photo.jpg" alt="Priyadharshan">
+        </div>
+        <h1>Priyadharshan</h1>
+        <div class="subtitle">Age: 28 | Chennai | Data Analyst</div>
+        <br>
+        <button onclick="checkPassword()" class="print-btn">
+            View Photos
+        </button>
+
+    </header>
+
+    <section>
+        <h2>Personal Details</h2>
+        <div class="card">
+            <p><strong>Date of Birth:</strong> 07-10-1997</p>
+            <p><strong>Height:</strong> 5'8"</p>
+            <p><strong>Religion:</strong> Hindu</p>
+            <p><strong>Caste:</strong> Vaniyakula Shathriyar</p>
+            <p><strong>Sub Caste:</strong> Padaiyachi</p>
+            <p><strong>Mother Tongue:</strong> Tamil</p>
+            <p><strong>Marital Status:</strong> Never Married</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education & Career</h2>
+        <div class="card">
+            <p>Bachelor's Degree</p>
+            <p>Working as a Data Analyst in a Sports Analytics Company</p>
+            <p>Company: Kadamba Technolgy</p>
+            <p>Annual Income: ₹6 Lakhs</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Family Details</h2>
+        <div class="card">
+            <p>Father: Electrician</p>
+            <p>Mother: Homemaker</p>
+            <p>Siblings: 1 Younger Brother</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Horoscope Details</h2>
+        <div class="card">
+            <p><strong>Rasi:</strong> Scorpio</p>
+            <p><strong>Nakshatra:</strong> ----</p>
+            <p><strong>Gothram:</strong> ----</p>
+            <p><strong>Dosham:</strong> No</p>
+            <p><strong>Birth Time:</strong> 02:20 AM</p>
+            <p><strong>Birth Place:</strong> Mayiladuthurai</p>
+        </div>
+        <br>
+
+        <a href="horoscope.pdf" target="_blank" class="print-btn">
+            View / Download Full Horoscope
+        </a>
+
+    </section>
+
+    <section>
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I am a calm, responsible, and family-oriented person. I value traditions, mutual respect, and personal
+                growth. I believe in balancing professional success with family life.</p>
+        </div>
+        <section>
+            <h2>Expectations</h2>
+            <div class="card">
+                <p><strong>Age Preference:</strong> 21 – 28 years</p>
+                <p><strong>Education:</strong> Educated (Graduate or above)</p>
+                <p><strong>Family Values:</strong> Respectful towards elders and family-oriented</p>
+                <p><strong>Personal Qualities:</strong> Understanding, supportive, and positive-minded</p>
+            </div>
+        </section>
+        <section>
+            <h2>Personal Message</h2>
+            <div class="card">
+                <p>
+                    I believe marriage is a partnership built on mutual respect, trust, and shared growth.
+                    I value honesty, emotional understanding, and strong family bonds.
+                    I look forward to building a happy and supportive life together.
+                </p>
+            </div>
+        </section>
+
+
+    </section>
+
+    <section style="text-align:center;">
+        <h2>Contact</h2>
+        <p>Parents Contact: +91-9047419356</p>
+
+        <a class="whatsapp-btn"
+            href="https://wa.me/91XXXXXXXXXX?text=Hello%20We%20are%20interested%20in%20the%20matrimony%20profile"
+            target="_blank">
+            Contact via WhatsApp
+        </a>
+        <br>
+        <a class="print-btn" onclick="window.print()">Download / Print Biodata</a>
+    </section>
+    <section id="gallery" style="display:none;">
+        <h2 style="text-align:center;">Photo Gallery</h2>
+
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="photo1.jpg" alt="Photo 1">
+            </div>
+            <div class="photo-item">
+                <img src="photo2.jpg" alt="Photo 2">
+            </div>
+            <div class="photo-item">
+                <img src="photo3.jpg" alt="Photo 3">
+            </div>
+            <div class="photo-item">
+                <img src="photo4.jpg" alt="Photo 4">
+            </div>
+        </div>
+    </section>
+    <script>
+        function checkPassword() {
+            var password = prompt("Enter password to view photos:");
+
+            if (password === "Groom2026") {
+                toggleGallery();
+            } else if (password !== null) {
+                alert("Incorrect password. Please contact family for access.");
+            }
+        }
+
+        function toggleGallery() {
+            var gallery = document.getElementById("gallery");
+
+            if (gallery.style.display === "none" || gallery.style.display === "") {
+                gallery.style.display = "block";
+                gallery.scrollIntoView({ behavior: "smooth" });
+            } else {
+                gallery.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+
+    <footer>
+        © 2026 Matrimony Profile
+    </footer>
+
+</body>
+
+</html>
