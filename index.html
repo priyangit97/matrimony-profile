@@ -443,41 +443,48 @@
 
         </div>
     </section>
-   <script>
-        let currentSlide = 0;
+  <script>
+let currentSlide = 0;
 
-        function showSlide(index) {
-            let slides = document.querySelectorAll(".slide");
+function showSlide(index) {
+    let slides = document.querySelectorAll(".slide");
 
-            if (index >= slides.length) currentSlide = 0;
-            if (index < 0) currentSlide = slides.length - 1;
+    if (slides.length === 0) return;
 
-            slides.forEach(slide => slide.style.display = "none");
-            slides[currentSlide].style.display = "block";
-        }
+    // Reset if out of bounds
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
 
-        function changeSlide(direction) {
-            currentSlide += direction;
-            showSlide(currentSlide);
-        }
+    slides.forEach(slide => slide.style.display = "none");
+    slides[currentSlide].style.display = "block";
+}
 
-   function checkPassword() {
+function changeSlide(direction) {
+    currentSlide += direction;
+    showSlide(currentSlide);
+}
+
+function checkPassword() {
     var password = prompt("Enter password to view photos:");
 
-    if(password === "2026"){
+    if(password === "Family2026"){
+
+        currentSlide = 0; // 🔥 IMPORTANT FIX
+
         var gallery = document.getElementById("gallery");
         gallery.style.display = "block";
+
         setTimeout(function() {
             gallery.scrollIntoView({ behavior: "smooth" });
         }, 200);
+
+        showSlide(currentSlide); // Always show first photo
     } 
     else if(password !== null){
         alert("Incorrect password");
     }
 }
-
-    </script>
-
+</script>
 
 
     <footer>
@@ -488,6 +495,7 @@
 
 
 </html>
+
 
 
 
