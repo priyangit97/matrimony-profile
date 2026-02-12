@@ -59,6 +59,32 @@ header {
     border: 4px solid white;
 }
 
+    .horoscope-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 10px 20px;
+}
+
+.label {
+    font-weight: bold;
+    color: #8b5e3c;
+}
+
+.value {
+    color: #333;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .horoscope-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .label {
+        margin-top: 10px;
+    }
+}
+
 h1 {
     font-size: clamp(24px, 4vw, 36px);
 }
@@ -212,6 +238,33 @@ footer {
 <p>Brother: Research Analyst (Dubai)</p>
 </div>
 </section>
+    <section>
+    <h2>Horoscope Details</h2>
+
+    <div class="card horoscope-grid">
+        <div class="label">Rasi</div>
+        <div class="value">Scorpio</div>
+
+        <div class="label">Nakshatra</div>
+        <div class="value">Jyestha (Keatai)</div>
+
+        <div class="label">Dosham</div>
+        <div class="value">No</div>
+
+        <div class="label">Birth Time</div>
+        <div class="value">02:40 AM</div>
+
+        <div class="label">Birth Place</div>
+        <div class="value">Mayiladuthurai</div>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="horoscope.pdf" target="_blank" class="print-btn">
+            View / Download Full Horoscope (Jathagam)
+        </a>
+    </div>
+</section>
+
 
 <section>
 <h2>About Me</h2>
@@ -289,4 +342,5 @@ alert("Incorrect password");
 
 </body>
 </html>
+
 
