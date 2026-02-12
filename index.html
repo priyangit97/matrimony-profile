@@ -1,21 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priyadharshan | Matrimony Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyadharshan | Matrimony Profile</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .slideshow-container {
-    position: relative;
-    max-width: 500px;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff8e7;
+    color: #4a2c2a;
+}
+
+/* Temple watermark */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Temple_silhouette.svg/800px-Temple_silhouette.svg.png') no-repeat center;
+    background-size: 60%;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #8b5e3c, #c19a6b);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.photo-frame {
+    width: 180px;
+    height: 180px;
     margin: auto;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+h1 {
+    font-size: clamp(24px, 4vw, 36px);
+}
+
+.subtitle {
+    margin-top: 5px;
+}
+
+/* Sections */
+section {
+    padding: 25px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    color: #8b5e3c;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #d4af37;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: clamp(18px, 3vw, 24px);
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.7;
+}
+
+/* Buttons */
+.whatsapp-btn,
+.print-btn,
+.insta-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    min-width: 220px;
+    text-align: center;
+    color: white;
+}
+
+.whatsapp-btn { background: #25D366; }
+.print-btn { background: #8b5e3c; }
+.insta-btn { background: #E1306C; }
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .contact-buttons {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 450px;
+    margin: 20px auto;
 }
 
 .slide {
@@ -24,10 +141,8 @@
 
 .slide img {
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .prev, .next {
@@ -37,7 +152,7 @@
     background: rgba(0,0,0,0.6);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -45,467 +160,132 @@
 .prev { left: 10px; }
 .next { right: 10px; }
 
-.prev:hover, .next:hover {
-    background: rgba(0,0,0,0.8);
-}
-
-@media(max-width:768px){
-    .slide img {
-        height: 350px;
-    }
-}
-
-.card {
-    background: white;
+/* Footer */
+footer {
+    text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background: #c19a6b;
+    color: white;
 }
-.insta-btn {
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 18px;
-    border-radius:6px;
-    background:#E1306C;
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    margin-top:10px;
-}
-
-.insta-btn:hover {
-    opacity:0.9;
-}
-
-        /* Language Switch */
-        .lang-switch {
-            text-align: right;
-            padding: 15px 20px;
-        }
-
-        .lang-switch button {
-            padding: 6px 14px;
-            margin-left: 8px;
-            border: 1px solid #ccc;
-            background: white;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            background: #fff8e7;
-            color: #4a2c2a;
-            position: relative;
-        }
-
-        /* Gallery */
-        .photo-grid {
-            max-width: 900px;
-            margin: 30px auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .photo-item {
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .photo-item img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Mobile */
-        @media(max-width:768px) {
-            .photo-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-item img {
-                height: 250px;
-            }
-        }
-
-
-        /* Temple Watermark Background */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Temple_silhouette.svg/800px-Temple_silhouette.svg.png') no-repeat center;
-            background-size: 60%;
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #8b5e3c, #c19a6b);
-            color: white;
-            text-align: center;
-            padding: 20px 20px;
-        }
-
-        .photo-frame {
-            width: 200px;
-            height: 200px;
-            margin: auto;
-            border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(135deg, #d4af37, #b8860b);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-        }
-
-
-
-        header h1 {
-            font-size: 34px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        /* Sections */
-        section {
-            padding: 10px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h2 {
-            color: #8b5e3c;
-            margin-bottom: 4px;
-            border-bottom: 2px solid #d4af37;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Card */
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* Buttons */
-        .whatsapp-btn,
-        .print-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-        }
-
-        .print-btn {
-            background: #8b5e3c;
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #c19a6b;
-            margin-top: 40px;
-            color: white;
-        }
-
-        /* Responsive */
-        @media(max-width:768px) {
-            .photo-frame {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        }
-
-        header h1 {
-            font-size: 26px;
-        }
-
-        .card {
-            font-size: 14px;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-        }
-
-        /* Print Style */
-        @media print {
-
-            .whatsapp-btn,
-            .print-btn {
-                display: none;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
-   
 
-    <header>
-        <div class="photo-frame">
-            <img src="your-photo.jpg" alt="Priyadharshan">
-        </div>
-        <h1>Priyadharshan</h1>
-        <div class="subtitle">Age: 28 | Chennai | Data Analyst</div>
-        <br>
-        <button onclick="checkPassword()" class="print-btn">
-            View Photos
-        </button>
+<header>
+<div class="photo-frame">
+<img src="your-photo.jpg" alt="Priyadharshan">
+</div>
+<h1>Priyadharshan</h1>
+<div class="subtitle">Age: 28 | Chennai | Data Analyst</div>
+<br>
+<button onclick="checkPassword()" class="print-btn">View Photos</button>
+</header>
 
-    </header>
+<section>
+<h2>Personal Details</h2>
+<div class="card">
+<p><strong>Date of Birth:</strong> 07-10-1997</p>
+<p><strong>Height:</strong> 5'8"</p>
+<p><strong>Religion:</strong> Hindu</p>
+<p><strong>Caste:</strong> Vaniyakula Shathriyar</p>
+<p><strong>Mother Tongue:</strong> Tamil</p>
+<p><strong>Marital Status:</strong> Never Married</p>
+</div>
+</section>
 
-    <section>
-        <h2>Personal Details</h2>
-        <div class="card">
-            <p><strong>Date of Birth:</strong> 07-10-1997</p>
-            <p><strong>Height:</strong> 5'8"</p>
-            <p><strong>Religion:</strong> Hindu</p>
-            <p><strong>Caste:</strong> Vaniyakula Shathriyar</p>
-            <p><strong>Sub Caste:</strong> Padaiyachi</p>
-            <p><strong>Mother Tongue:</strong> Tamil</p>
-            <p><strong>Marital Status:</strong> Never Married</p>
-        </div>
-        <section>
+<section>
+<h2>Education & Career</h2>
+<div class="card">
+<p>Bachelor's Degree</p>
+<p>Data Analyst – Sports Analytics</p>
+<p>Company: Kadamba Technology</p>
+<p>Annual Income: ₹6 Lakhs</p>
+</div>
+</section>
+
+<section>
+<h2>Family Details</h2>
+<div class="card">
+<p>Father: Electrician</p>
+<p>Mother: Homemaker</p>
+<p>Brother: Research Analyst (Dubai)</p>
+</div>
+</section>
+
+<section>
+<h2>About Me</h2>
+<div class="card">
+<p>Calm, responsible, and family-oriented. I value traditions, mutual respect, and professional growth while maintaining strong family bonds.</p>
+</div>
+</section>
+
+<section>
+<h2>Contact</h2>
+<p style="text-align:center;">Cousin Brother Contact: +91-8148833103</p>
+
+<div class="contact-buttons">
+<a class="whatsapp-btn"
+href="https://wa.me/919688956549?text=Hello%20We%20are%20interested%20in%20the%20matrimony%20profile"
+target="_blank">Contact via WhatsApp</a>
+
+<a href="https://instagram.com/Priyan.praba"
+target="_blank"
+class="insta-btn">Instagram Profile</a>
+
+<a class="print-btn" onclick="window.print()">Download / Print Biodata</a>
+</div>
+
+<div id="gallery" style="display:none;">
+<div class="slideshow-container">
+<div class="slide"><img src="photo1.jpg"></div>
+<div class="slide"><img src="photo2.jpg"></div>
+<div class="slide"><img src="photo3.jpg"></div>
+<div class="slide"><img src="photo4.jpg"></div>
+<div class="slide"><img src="photo5.jpg"></div>
+
+<button class="prev" onclick="changeSlide(-1)">❮</button>
+<button class="next" onclick="changeSlide(1)">❯</button>
+</div>
+</div>
 
 </section>
 
-    </section>
+<footer>
+© 2026 Matrimony Profile
+</footer>
 
-    <section>
-        <h2>Education & Career</h2>
-        <div class="card">
-            <p>Bachelor's Degree</p>
-            <p>Working as a Data Analyst in a Sports Analytics Company</p>
-            <p>Company: Kadamba Technolgy</p>
-            <p>Annual Income: ₹6 Lakhs</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Family Details</h2>
-        <div class="card">
-            <p>Father: K.Prabhakaran (Electrician)</p>
-            <p>Mother: P.Thamayanthi (Homemaker)</p>
-            <p>Siblings: Ragul (Younger brother who is completed BCA Working as a Research Analyst in Dubai)</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Horoscope Details</h2>
-        <div class="card">
-            <p><strong>Rasi:</strong> Scorpio</p>
-            <p><strong>Nakshatra:</strong> Jyestha(Keatai)</p>
-            <p><strong>Dosham:</strong> No</p>
-            <p><strong>Birth Time:</strong> 02:40 AM</p>
-            <p><strong>Birth Place:</strong> Mayiladuthurai</p>
-        </div>
-        <br>
-
-        <a href="horoscope.pdf" target="_blank" class="print-btn">
-            View / Download Full Horoscope(Jathagam)
-        </a>
-
-    </section>
-
-    <section>
-        <h2>About Me</h2>
-        <div class="card">
-            <p>I am a calm, responsible, and family-oriented person. I value traditions, mutual respect, and personal
-                growth. I believe in balancing professional success with family life.</p>
-        </div>
-         <section>
-            <h2>Lifestyle & Habits</h2>
-
-     <div class="card">
-            <p><strong>Food Preference:</strong> Veg/nonveg</p>
-            <p><strong>Smoking:</strong> No</p>
-            <p><strong>Drinking:</strong> No</p>
-            <p><strong>Hobbies:</strong> Fitness, Cricket, Football, F1 ,Tennis</p>
-            <p><strong>Beliefs:</strong> Traditional values with a modern outlook</p>
-            </div>
-        </section>
-        <section>
-            <h2>Expectations</h2>
-            <div class="card">
-                <p><strong>Age Preference:</strong> 21 – 28 years</p>
-                <p><strong>Education:</strong> Educated (Graduate or above)</p>
-                <p><strong>Family Values:</strong> Respectful towards elders and family-oriented</p>
-                <p><strong>Personal Qualities:</strong> Understanding, supportive, and positive-minded</p>
-            </div>
-        </section>
-        <section>
-            <h2>Personal Message</h2>
-            <div class="card">
-                <p>
-                    I believe marriage is a partnership built on mutual respect, trust, and shared growth.
-                    I value honesty, emotional understanding, and strong family bonds.
-                    I look forward to building a happy and supportive life together.
-                </p>
-            </div>
-        </section>
-
-
-    </section>
-
-    <section style="text-align:center;">
-        <h2>Contact</h2>
-        <p>Cousin Brother Contact: +91-8148833103</p>
-
-        <a class="whatsapp-btn"
-            href="https://wa.me/919688956549?text=Hello%20We%20are%20interested%20in%20the%20matrimony%20profile"
-            target="_blank">
-            Contact via WhatsApp
-        </a>
-        
-         
-
-        <a href="https://instagram.com/Priyan.praba" target="_blank" class="insta-btn">
-            <i class="fa-brands fa-instagram"></i>
-            Instagram Profile
-        </a>
-
-        
-        <a class="print-btn" onclick="window.print()">Download / Print Biodata</a>
-  <section>
-
-
-
-
-        <div id="gallery" style="display:none; text-align:center; margin-top:20px;">
-
-            <div class="slideshow-container">
-
-                <div class="slide">
-                    <img src="photo1.jpg">
-                </div>
-
-                <div class="slide">
-                    <img src="photo2.jpg">
-                </div>
-
-                <div class="slide">
-                    <img src="photo3.jpg">
-                </div>
-
-                <div class="slide">
-                    <img src="photo4.jpg">
-                </div>
-                <div class="slide">
-    <img src="photo5.jpg">
-</div>
-
-
-                <button class="prev" onclick="changeSlide(-1)">❮</button>
-                <button class="next" onclick="changeSlide(1)">❯</button>
-
-            </div>
-
-        </div>
-    </section>
-  <script>
+<script>
 let currentSlide = 0;
 
 function showSlide(index) {
-    let slides = document.querySelectorAll(".slide");
-
-    if (slides.length === 0) return;
-
-    // Reset if out of bounds
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-
-    slides.forEach(slide => slide.style.display = "none");
-    slides[currentSlide].style.display = "block";
+let slides = document.querySelectorAll(".slide");
+if (index >= slides.length) currentSlide = 0;
+if (index < 0) currentSlide = slides.length - 1;
+slides.forEach(slide => slide.style.display = "none");
+slides[currentSlide].style.display = "block";
 }
 
 function changeSlide(direction) {
-    currentSlide += direction;
-    showSlide(currentSlide);
+currentSlide += direction;
+showSlide(currentSlide);
 }
 
 function checkPassword() {
-    var password = prompt("Enter password to view photos:");
-
-    if(password === "2026"){
-
-        currentSlide = 0; // 🔥 IMPORTANT FIX
-
-        var gallery = document.getElementById("gallery");
-        gallery.style.display = "block";
-
-        setTimeout(function() {
-            gallery.scrollIntoView({ behavior: "smooth" });
-        }, 200);
-
-        showSlide(currentSlide); // Always show first photo
-    } 
-    else if(password !== null){
-        alert("Incorrect password");
-    }
+var password = prompt("Enter password to view photos:");
+if(password === "2026"){
+currentSlide = 0;
+document.getElementById("gallery").style.display = "block";
+setTimeout(function(){
+document.getElementById("gallery").scrollIntoView({behavior:"smooth"});
+},200);
+showSlide(currentSlide);
+}
+else if(password !== null){
+alert("Incorrect password");
+}
 }
 </script>
 
-
-    <footer>
-        © 2026 Matrimony Profile
-    </footer>
-
 </body>
-
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
